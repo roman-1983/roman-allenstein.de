@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roman Allenstein — Technology & E-Commerce Leadership</title>
+  <meta name="description" content="Roman Allenstein – Senior Manager, Diplom-Wirtschaftsinformatiker, 15+ Jahre Erfahrung in E-Commerce, Technologie und Leadership.">
+  <meta name="theme-color" content="#1A1A1A">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Roman Allenstein — Technology & E-Commerce Leadership">
+  <meta property="og:description" content="Senior Manager &amp; Diplom-Wirtschaftsinformatiker mit 15+ Jahren Erfahrung an der Schnittstelle von Technologie, Strategie und Führung.">
+  <meta property="og:image" content="https://roman-allenstein.de/photo.jpg">
+  <meta property="og:url" content="https://roman-allenstein.de">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Roman Allenstein — Technology & E-Commerce Leadership">
+  <meta name="twitter:description" content="Senior Manager &amp; Diplom-Wirtschaftsinformatiker mit 15+ Jahren Erfahrung in E-Commerce und Leadership.">
+  <meta name="twitter:image" content="https://roman-allenstein.de/photo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --coral: #F84F4A;
+      --bg: #1A1A1A;
+      --text: #F5F5F7;
+      --text-muted: #98989D;
+      --text-subtle: #6E6E73;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    .page {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+    }
+
+    .content {
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .accent-line {
+      width: 48px;
+      height: 3px;
+      background: var(--coral);
+      border-radius: 2px;
+    }
+
+    .subtitle {
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    /* Currently working for */
+    .working-for {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+    }
+
+    .working-for svg {
+      height: 18px;
+      width: auto;
+    }
+
+    /* Social links */
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .links a {
+      color: var(--text-subtle);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .links a:hover {
+      color: var(--coral);
+      transform: translateY(-1px);
+    }
+
+    .link-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* References */
+    .references {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .references a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--text-subtle);
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .references a:hover {
+      color: var(--coral);
+      transform: translateY(-1px);
+    }
+
+    /* Photo - anchored bottom right, cropped */
+    .photo {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 45vw;
+      max-width: 580px;
+      height: 85vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, var(--bg) 0%, transparent 40%),
+        linear-gradient(to bottom, var(--bg) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .photo {
+        width: 50vw;
+        height: 60vh;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        overflow: auto;
+      }
+
+      .page {
+        height: auto;
+        min-height: 100vh;
+        padding: 2.5rem 1.5rem;
+        padding-bottom: 50vh;
+        justify-content: flex-start;
+        padding-top: 3rem;
+      }
+
+      .photo {
+        width: 75vw;
+        height: 45vh;
+      }
+
+      .photo::after {
+        background:
+          linear-gradient(to right, var(--bg) 0%, transparent 30%),
+          linear-gradient(to bottom, var(--bg) 0%, transparent 50%);
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .content {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="content">
+      <img src="assets/logo.png" alt="Roman Allenstein Logo" class="logo" width="44" height="44">
+      <h1>Roman<br>Allenstein</h1>
+      <div class="accent-line" role="presentation"></div>
+      <p class="subtitle">Technology &amp; E-Commerce Leadership</p>
+
+      <div class="working-for">
+        Currently working for
+        <svg viewBox="0 0 128.744 34.2326" aria-label="Reply" role="img"><g transform="translate(0,-14.8837)"><path fill-rule="evenodd" clip-rule="evenodd" d="m 27.3656,18.3166 c 0,-1.8964 1.5353,-3.4329 3.4357,-3.4329 1.8916,0 3.4313,1.5365 3.4313,3.4329 0,1.8921 -1.5397,3.4242 -3.4313,3.4242 -1.9004,0 -3.4357,-1.5321 -3.4357,-3.4242 z m 0.1956,5.3513 -4.2935,5.6411 -1.0865,1.4618 5.1952,6.9888 c 0.286,0.3819 0.44,0.8472 0.4356,1.3257 l -0.0352,9.2408 c 0,0.439 -0.3564,0.7902 -0.7919,0.7902 h -0.607 c -0.3959,0 -0.7347,-0.2942 -0.7875,-0.6849 l -1.1305,-8.3276 c -0.0396,-0.2985 -0.1936,-0.5663 -0.4311,-0.7507 l -5.9519,-4.7192 -2.8198,1.7165 c -0.374,0.2239 -0.8007,0.3468 -1.2362,0.3556 L 2.24466,36.8991 C 1.90154,36.9035 1.56721,36.7631 1.33406,36.5128 L 0.141917,35.2354 C -0.14842,34.9281 0.0319411,34.4145 0.45425,34.3574 L 12.6484,32.6278 21.9172,22.689 14.4256,21.2798 c -0.2155,-0.0395 -0.4179,-0.1317 -0.585,-0.2678 l -1.2098,-0.9745 c -0.2639,-0.2107 -0.1143,-0.6322 0.2244,-0.6322 h 4.3154 l 7.8656,-0.0526 c 0.3035,-0.0044 0.585,0.1536 0.7478,0.4082 l 1.8212,2.9193 c 0.1936,0.3073 0.176,0.7024 -0.044,0.9877 z" fill="#02d34a"/><path fill-rule="evenodd" clip-rule="evenodd" d="m 52.4587,27.2963 c 0,-1.7325 -1.3497,-2.7997 -3.1093,-2.7997 h -4.7042 v 5.6618 h 4.7042 c 1.7596,0 3.1093,-1.0716 3.1093,-2.8621 z m -0.441,14.2481 -4.1117,-7.4567 h -3.2608 v 7.4567 H 40.186 V 20.5629 h 9.7915 c 4.3611,0 7.0607,2.8621 7.0607,6.7646 0,3.6793 -2.3521,5.693 -4.6106,6.2244 l 4.7353,7.9925 z" fill="#F5F5F7"/><path fill-rule="evenodd" clip-rule="evenodd" d="M 60.363,41.5444 V 20.5629 h 14.8075 v 3.9337 H 64.8177 v 4.4026 h 10.1345 v 3.9293 H 64.8177 v 4.7822 h 10.3528 v 3.9337 z" fill="#F5F5F7"/><path fill-rule="evenodd" clip-rule="evenodd" d="m 90.927,27.3275 c 0,-1.7637 -1.3453,-2.8309 -3.1049,-2.8309 h -4.7086 v 5.6305 h 4.7086 c 1.7596,0 3.1049,-1.0716 3.1049,-2.7996 z M 78.6588,41.5444 V 20.5629 h 9.7914 c 4.5483,0 7.0295,3.0809 7.0295,6.7646 0,3.648 -2.5124,6.7289 -7.0295,6.7289 h -5.3367 v 7.488 z" fill="#F5F5F7"/><path fill-rule="evenodd" clip-rule="evenodd" d="M 98.0818,41.5444 V 20.5629 h 4.4902 v 17.0478 h 8.847 v 3.9337 z" fill="#F5F5F7"/><path fill-rule="evenodd" clip-rule="evenodd" d="M 116.284,41.5444 V 32.958 l -8.031,-12.3951 h 5.082 l 5.177,8.3989 5.176,-8.3989 h 5.056 l -8.005,12.3951 v 8.5864 z" fill="#F5F5F7"/></g></svg>
+      </div>
+
+      <nav class="links" aria-label="Social Media Profile">
+        <a href="https://www.linkedin.com/in/romanallenstein/" target="_blank" rel="noopener">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/rallenstein" target="_blank" rel="noopener">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </nav>
+
+      <div class="references">
+        <a href="https://youtu.be/BbYyXlA4f48" target="_blank" rel="noopener">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          E-Commerce Trends Talk
+        </a>
+        <a href="https://www.shopware.com/de/news/shopware-paas-im-interview-mit-phiacademy-und-portaltech-reply/" target="_blank" rel="noopener">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          PaaS Interview
+        </a>
+      </div>
+    </div>
+
+    <div class="photo">
+      <picture>
+        <source srcset="assets/photo.webp" type="image/webp">
+        <img src="assets/photo.jpg" alt="Portrait von Roman Allenstein – lächelnd, mit verschränkten Armen" width="1600" height="1067" loading="eager">
+      </picture>
+    </div>
+
+  </div>
+</body>
+</html>
