@@ -13,10 +13,6 @@ services:
       start_period: 10s
     networks:
       - proxy
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.roman-allenstein.rule=Host(`roman-allenstein.de`) || Host(`www.roman-allenstein.de`) || Host(`roman-allenstein-de.anton.lab.roman-allenstein.de`)
-      - traefik.http.routers.roman-allenstein.entrypoints=web
 
 networks:
   proxy:
