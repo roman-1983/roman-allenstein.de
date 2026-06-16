@@ -1,0 +1,212 @@
+/* ============================================================
+   Roman Allenstein — facelift of the existing profile page.
+   Keeps the original identity (Inter, coral #F84F4A, #1A1A1A,
+   left text column + bleeding portrait) and adds restrained motion.
+   ============================================================ */
+
+:root {
+  --coral:        #f84f4a;
+  --coral-deep:   #e23b36;
+  --bg:           #1a1a1a;
+  --bg-edge:      #141414;
+  --text:         #f5f5f7;
+  --text-muted:   #98989d;
+  --text-subtle:  #6e6e73;
+  --line:         rgba(255, 255, 255, 0.10);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --gut: clamp(24px, 6vw, 96px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--coral); color: #1a1a1a; }
+
+/* fine grain for depth */
+.grain {
+  position: fixed; inset: 0; z-index: 5; pointer-events: none;
+  opacity: 0.035; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- stage ---------- */
+.stage {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 88% 50%, #242424 0%, transparent 55%),
+    linear-gradient(100deg, var(--bg-edge) 0%, var(--bg) 42%);
+}
+
+/* ---------- portrait ---------- */
+.portrait {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 58%;
+  z-index: 1;
+  will-change: transform;
+}
+.portrait__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 28%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 100%);
+}
+.portrait__glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(40% 46% at 62% 44%, rgba(248, 79, 74, 0.16), transparent 70%);
+  will-change: transform;
+}
+
+/* ---------- content ---------- */
+.intro {
+  position: relative;
+  z-index: 3;
+  padding: 0 var(--gut);
+  max-width: 760px;
+}
+.intro__logo {
+  width: clamp(30px, 3vw, 40px);
+  height: auto;
+  margin-bottom: clamp(22px, 3.4vw, 38px);
+  transition: transform 0.5s var(--ease);
+}
+.intro__logo:hover { transform: rotate(-8deg) scale(1.08); }
+
+.intro__name {
+  font-weight: 800;
+  font-size: clamp(2.7rem, 6.2vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+.intro__name .line { display: block; overflow: hidden; }
+.intro__name .line > span { display: inline-block; }
+
+.intro__rule {
+  display: block;
+  width: 64px; height: 3px;
+  margin: clamp(20px, 2.6vw, 32px) 0 clamp(18px, 2.4vw, 28px);
+  background: var(--coral);
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+.intro__role {
+  font-size: clamp(1.02rem, 1.5vw, 1.35rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+.intro__work {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: clamp(22px, 3vw, 34px);
+  font-size: 0.95rem;
+}
+.intro__work-label { color: var(--text-subtle); }
+.reply__link { display: inline-flex; }
+.reply__logo { display: block; height: 1.4em; width: auto; }
+
+/* link rows */
+.links {
+  display: flex; flex-wrap: wrap; gap: 12px 28px;
+  margin-top: clamp(26px, 3vw, 36px);
+}
+.links--media { margin-top: 14px; }
+.link {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 0.92rem; color: var(--text-muted);
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.25s var(--ease);
+}
+.link svg { color: var(--text-subtle); transition: color 0.25s var(--ease), transform 0.25s var(--ease); flex: none; }
+.link span { position: relative; }
+.link span::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 1px; background: var(--coral);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+.link:hover { color: var(--text); }
+.link:hover svg { color: var(--coral); transform: translateY(-1px); }
+.link:hover span::after { transform: scaleX(1); }
+
+/* ---------- intro entrance (enhancement only) ----------
+   Content is visible by default. The .intro-anim class (added by an inline
+   head script when motion is allowed) hides + animates it in. If JS or the
+   animation never runs, everything simply stays visible. */
+html.intro-anim .a                       { opacity: 0; animation: rise 0.9s var(--ease) forwards; }
+html.intro-anim .intro__logo.a           { animation-delay: 0.15s; }
+html.intro-anim .intro__name .line > span{ opacity: 0; transform: translateY(105%); }
+html.intro-anim .intro__name .line:nth-child(1) > span { animation: rise-line 1s var(--ease) 0.4s forwards; }
+html.intro-anim .intro__name .line:nth-child(2) > span { animation: rise-line 1s var(--ease) 0.52s forwards; }
+html.intro-anim .intro__rule             { transform: scaleX(0); animation: rule-in 0.9s var(--ease) 1.05s forwards; }
+html.intro-anim .intro__role.a           { animation-delay: 1.15s; }
+html.intro-anim .intro__work.a           { animation-delay: 1.3s; }
+html.intro-anim .links.a                 { animation-delay: 1.45s; }
+html.intro-anim .links--media.a          { animation-delay: 1.58s; }
+html.intro-anim .portrait__img           { opacity: 0; animation: portrait-in 1.6s var(--ease) 0.25s forwards; }
+html.intro-anim .portrait__glow          { opacity: 0; animation: fade 2s ease 0.6s forwards; }
+
+@keyframes rise      { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rise-line { from { opacity: 0; transform: translateY(105%); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rule-in   { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes portrait-in { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: scale(1); } }
+@keyframes fade      { from { opacity: 0; } to { opacity: 1; } }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  body { overflow-y: auto; }
+  .stage {
+    align-items: flex-start;
+    background:
+      radial-gradient(90% 50% at 80% 88%, #242424 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-edge) 100%);
+  }
+  .intro { padding-top: clamp(48px, 9vh, 96px); padding-bottom: 44vh; }
+  .portrait {
+    width: 100%; height: 64%;
+    top: auto; bottom: 0;
+  }
+  .portrait__img {
+    object-position: 60% 20%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 34%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 34%, #000 100%);
+  }
+  .portrait__glow { background: radial-gradient(46% 34% at 66% 50%, rgba(248,79,74,0.16), transparent 70%); }
+}
+
+@media (max-width: 480px) {
+  .intro { padding-bottom: 40vh; }
+  .links { gap: 10px 22px; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .a, .intro__name .line > span, .portrait__img, .portrait__glow, .intro__rule {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
