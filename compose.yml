@@ -4,7 +4,9 @@ services:
     container_name: roman-allenstein
     restart: unless-stopped
     volumes:
-      - ./src:/usr/share/nginx/html:ro
+      # Absolute host path: Dockhand runs in a container, so a relative ./src
+      # resolves to its internal /app/data path and the daemon mounts an empty dir.
+      - /home/roman/homelab/stacks/Homelab/roman-allenstein-de/src:/usr/share/nginx/html:ro
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
       interval: 30s
