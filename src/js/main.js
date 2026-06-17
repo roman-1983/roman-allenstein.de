@@ -1,3 +1,22 @@
+/* Fade the portrait in only once the photo is fully loaded, so slow
+   connections never reveal a half-painted image. Independent of the
+   parallax below and of viewport size. */
+(function () {
+  "use strict";
+
+  var img = document.querySelector(".portrait__img");
+  if (!img) return;
+
+  function reveal() { img.classList.add("is-loaded"); }
+
+  if (img.complete && img.naturalWidth > 0) {
+    reveal();                                   // already cached
+  } else {
+    img.addEventListener("load", reveal, { once: true });
+    img.addEventListener("error", reveal, { once: true }); // never stay hidden
+  }
+})();
+
 /* Gentle pointer parallax on the portrait + coral glow.
    Progressive enhancement only: the page is complete without JS. */
 (function () {

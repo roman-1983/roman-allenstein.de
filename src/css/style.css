@@ -164,7 +164,8 @@ html.intro-anim .intro__role.a           { animation-delay: 1.15s; }
 html.intro-anim .intro__work.a           { animation-delay: 1.3s; }
 html.intro-anim .links.a                 { animation-delay: 1.45s; }
 html.intro-anim .links--media.a          { animation-delay: 1.58s; }
-html.intro-anim .portrait__img           { opacity: 0; animation: portrait-in 1.6s var(--ease) 0.25s forwards; }
+html.intro-anim .portrait__img           { opacity: 0; }
+html.intro-anim .portrait__img.is-loaded { animation: portrait-in 1.2s var(--ease) forwards; }
 html.intro-anim .portrait__glow          { opacity: 0; animation: fade 2s ease 0.6s forwards; }
 
 @keyframes rise      { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
