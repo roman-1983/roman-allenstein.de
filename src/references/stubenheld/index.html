@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var ok = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!ok) return;
+      document.documentElement.classList.add("reveal-anim");
+      // Safety net: if references.js never runs, drop the class so nothing
+      // stays hidden.
+      window.setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("reveal-anim");
+        }
+      }, 2000);
+    })();
+  </script>
+  <title>Stubenheld - Roman Allenstein</title>
+  <meta name="description" content="Stubenheld: a mobile-first Progressive Web App for puppy house-training, built with Symfony, PHP 8.4, SQLite and FrankenPHP in a single container." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/references.css" />
+  <script src="https://rybbit.rmn.one/api/script.js" data-site-id="3" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>References</span>
+      </a>
+    </div>
+
+    <header class="head">
+      <p class="head__eyebrow">Progressive Web App</p>
+      <div class="project-head">
+        <img class="project-head__icon" src="../../assets/references/stubenheld/icon.png" alt="Stubenheld app icon" />
+        <h1 class="project-head__title">Stubenheld</h1>
+      </div>
+      <p class="head__lead">
+        House-training a puppy means logging dozens of tiny events a day, usually
+        with one hand and no patience to spare. Stubenheld turns that into a
+        single tap - and quietly turns the log into something useful: a streak, a
+        prediction of the next bathroom break, and a report a vet can actually read.
+      </p>
+    </header>
+
+    <section class="meta">
+      <div class="r">
+        <div class="meta__key">Role</div>
+        <div class="meta__val">Concept, design, development, operations</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Type</div>
+        <div class="meta__val">Installable PWA, mobile-first</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Stack</div>
+        <div class="meta__val">Symfony 6.4 LTS · PHP 8.4 · SQLite · FrankenPHP</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Status</div>
+        <div class="meta__val">In daily use, actively developed</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The problem</h2>
+      <p class="prose r">
+        A puppy's bladder runs on a schedule nobody writes down. To spot the
+        pattern you need a record - but every note app, spreadsheet or chat
+        thread we tried collapsed under the same weight: it asked for too much
+        at the exact moment we had the least attention to give.
+      </p>
+      <p class="prose r">
+        So the product had one hard requirement, and everything else follows from
+        it: <strong>open the app, press a button, close the app.</strong> No
+        forms, no dialogs, no decisions. Anything that could not survive that
+        constraint had to move out of the way - into the timeline, the statistics
+        or the report, where there is time to look.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The app</h2>
+      <div class="shots">
+        <figure class="shot r">
+          <img src="../../assets/references/stubenheld/app-heute.jpg" alt="The Today screen with prediction banner, walk and sleep tiles and one-tap logging buttons" loading="lazy" />
+          <figcaption>Today - prediction, walk, sleep and one-tap logging.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/stubenheld/app-streak.jpg" alt="The Streak screen showing the current streak, best streak, total entries and last accident" loading="lazy" />
+          <figcaption>Streak - progress made visible, without nagging.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/stubenheld/app-historie.jpg" alt="The History screen with a day-by-day timeline of entries, accidents highlighted in red" loading="lazy" />
+          <figcaption>History - the full timeline, every entry editable.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">What it does</h2>
+      <ul class="features">
+        <li class="r">
+          <b>One-tap logging</b>
+          <span>Pee, poop, food and water - plus a segmented control for where it happened. "Indoors" silently marks it as an accident.</span>
+        </li>
+        <li class="r">
+          <b>Walks, sleep and timed activities</b>
+          <span>Start and stop a walk or a nap with a live timer; chewing and teething sessions run on a countdown.</span>
+        </li>
+        <li class="r">
+          <b>Prediction instead of reminders</b>
+          <span>The next bathroom break is estimated from the median of recent intervals, weighted by time of day and filtered for night-time gaps.</span>
+        </li>
+        <li class="r">
+          <b>Web push to every device</b>
+          <span>An optional VAPID-signed alarm fires a few minutes ahead of the predicted time - on iOS too, once the PWA is installed.</span>
+        </li>
+        <li class="r">
+          <b>Streaks and statistics</b>
+          <span>Consecutive successes, personal best, time since the last accident. Motivation, derived from data already there.</span>
+        </li>
+        <li class="r">
+          <b>Vet report</b>
+          <span>Clinical metrics, frequency charts and accident rates over a chosen period, laid out for print and export as PDF.</span>
+        </li>
+        <li class="r">
+          <b>Households</b>
+          <span>A tenant model keeps each household's dogs, users and entries fully isolated, with password login and email-based reset.</span>
+        </li>
+        <li class="r">
+          <b>Installable and offline-capable</b>
+          <span>Home screen icon, splash screen, standalone mode and a service worker that keeps the app usable without a connection.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Vet report</h2>
+      <p class="prose r">
+        The same log that motivates at home becomes evidence at the practice.
+        The report condenses a chosen period into clinical figures - urinations
+        and stools per day, average interval, longest gap, night-time activity,
+        accident rate - followed by charts per day. It is styled for paper and
+        exports straight to PDF.
+      </p>
+      <div class="shots" style="margin-top: 32px;">
+        <figure class="shot shot--wide r">
+          <img src="../../assets/references/stubenheld/app-report.jpg" alt="The vet report with clinical metrics and a per-day frequency chart" loading="lazy" />
+          <figcaption>The vet report, ready to print or hand over as a PDF.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">How it is built</h2>
+      <p class="prose r">
+        Server-rendered Twig, vanilla JavaScript, no build step and no frontend
+        framework. The whole application ships as <strong>one Docker
+        container</strong>: FrankenPHP serves the app and static assets, SQLite
+        lives in a named volume, and the entrypoint warms the cache, runs
+        migrations and starts the reminder scheduler on boot.
+      </p>
+      <p class="prose r">
+        That choice is the point rather than a shortcut. A tool used twenty times
+        a day has to start instantly and never break, so the interesting work
+        went into interaction and data - prediction, streak calculation, the
+        timeline, the report - instead of into a toolchain.
+      </p>
+      <p class="prose r">
+        Deployment is a git push: a webhook pulls, rebuilds and restarts the
+        stack behind a reverse proxy. A <strong>/health</strong> endpoint returns
+        the running commit, build time and database status, and the same version
+        is printed inside the app - so "did my change actually ship?" is one
+        request away.
+      </p>
+      <ul class="chips r" style="margin-top: 28px;">
+        <li>Symfony 6.4 LTS</li>
+        <li>PHP 8.4</li>
+        <li>Doctrine ORM &amp; Migrations</li>
+        <li>SQLite</li>
+        <li>Twig</li>
+        <li>FrankenPHP / Caddy</li>
+        <li>Docker Compose</li>
+        <li>Service Worker</li>
+        <li>Web Push (VAPID)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">What I took away</h2>
+      <p class="prose r">
+        Constraints beat features. The one-tap rule decided the navigation, the
+        data model and half the UI on its own - and every idea that could not be
+        expressed within it turned out to belong somewhere else in the app, or
+        nowhere at all.
+      </p>
+      <p class="prose r">
+        Being the operator as well as the developer changed the priorities, too.
+        Health endpoint, visible version, one-command deploy and a database that
+        survives every rebuild were not polish at the end; they were what made it
+        safe to keep shipping while the app was already in daily use.
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p>Roman Allenstein · <a href="../">References</a> · <a href="../../">roman-allenstein.de</a></p>
+    </footer>
+  </div>
+
+  <script src="../../js/references.js"></script>
+</body>
+</html>
