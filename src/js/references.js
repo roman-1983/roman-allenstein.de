@@ -25,3 +25,49 @@
     io.observe(el);
   });
 })();
+
+// Click a screenshot to see it full size. Uses a native <dialog>, so Escape and
+// focus handling come for free. Without JS the images simply stay inline.
+(function () {
+  var shots = document.querySelectorAll(".shot img");
+  if (!shots.length || !window.HTMLDialogElement) return;
+
+  var dialog = document.createElement("dialog");
+  dialog.className = "lightbox";
+  dialog.innerHTML =
+    '<button class="lightbox__close" type="button" aria-label="Close">&times;</button>' +
+    '<img class="lightbox__img" alt="" />' +
+    '<p class="lightbox__caption"></p>';
+  document.body.appendChild(dialog);
+
+  var img = dialog.querySelector(".lightbox__img");
+  var caption = dialog.querySelector(".lightbox__caption");
+
+  function open(source) {
+    img.src = source.currentSrc || source.src;
+    img.alt = source.alt || "";
+    var figcaption = source.closest("figure") && source.closest("figure").querySelector("figcaption");
+    caption.textContent = figcaption ? figcaption.textContent : "";
+    dialog.showModal();
+  }
+
+  shots.forEach(function (source) {
+    source.tabIndex = 0;
+    source.setAttribute("role", "button");
+    source.addEventListener("click", function () { open(source); });
+    source.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open(source);
+      }
+    });
+  });
+
+  dialog.querySelector(".lightbox__close").addEventListener("click", function () { dialog.close(); });
+  // Clicking the backdrop closes too: the dialog itself is the only child that
+  // fills the viewport, so a click landing on it is a click outside the image.
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("close", function () { img.removeAttribute("src"); });
+})();
