@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var ok = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!ok) return;
+      document.documentElement.classList.add("reveal-anim");
+      // Safety net: if references.js never runs, drop the class so nothing
+      // stays hidden.
+      window.setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("reveal-anim");
+        }
+      }, 2000);
+    })();
+  </script>
+  <title>CPO - Roman Allenstein</title>
+  <meta name="description" content="CPO: an internal controlling and resource-planning application built with Symfony 7, PostgreSQL and FrankenPHP." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/references.css" />
+  <script src="https://rybbit.rmn.one/api/script.js" data-site-id="3" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>References</span>
+      </a>
+    </div>
+
+    <header class="head">
+      <p class="head__eyebrow">Internal business application</p>
+      <div class="project-head">
+        <img class="project-head__icon" src="../../assets/references/cpo/icon.svg" alt="CPO app icon" />
+        <h1 class="project-head__title">CPO<span class="project-head__sub">Chief Planning Office</span></h1>
+      </div>
+      <p class="head__lead">
+        Controlling and resource planning inside an IT and digital agency: who is
+        booked on which project, what was actually delivered, and where the next
+        gap in the schedule opens up. I built it for my own job as Senior
+        Business Unit Manager - the person who needed the numbers and the person
+        who wrote the code were the same, which shows in every design decision.
+      </p>
+    </header>
+
+    <section class="meta">
+      <div class="r">
+        <div class="meta__key">Role</div>
+        <div class="meta__val">Own use case, plus concept, architecture, development and operations</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Type</div>
+        <div class="meta__val">Internal web application, role-based</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Stack</div>
+        <div class="meta__val">Symfony 7.4 · PHP 8.3 · PostgreSQL 16 · FrankenPHP</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Status</div>
+        <div class="meta__val">In production, actively developed</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The problem</h2>
+      <p class="prose r">
+        Capacity planning lived in spreadsheets - one per business unit, each
+        with its own conventions. Actual hours lived somewhere else entirely, in
+        a central administration tool the planners could read but not shape. The
+        two never met without somebody exporting, pasting and reformatting, and
+        by the time a plan-versus-actual comparison existed it described a month
+        that was already over.
+      </p>
+      <p class="prose r">
+        The questions the business actually asked were simple, and none of them
+        could be answered quickly: <strong>Who is unstaffed next month? Is this
+        project still inside its budget? Did we plan what we ended up
+        delivering?</strong> CPO exists to make those three questions cheap.
+      </p>
+      <p class="prose r">
+        Buying something off the shelf was never really on the table. The data is
+        confidential - staffing, rates, utilisation, customer budgets - so
+        handing it to a SaaS vendor would have meant a procurement and compliance
+        exercise longer than the build itself. Self-built and self-hosted was the
+        answer to a governance question first, and a technical preference second.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The app</h2>
+      <p class="notice r">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3l9 16H3l9-16zm0 6v4m0 3v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><strong>Demo data.</strong> These screenshots come from a local instance.
+        Every person, customer, project and business unit shown is a randomly
+        generated placeholder - no real name appears anywhere.</span>
+      </p>
+      <div class="shots">
+        <figure class="shot shot--wide r">
+          <img src="../../assets/references/cpo/app-resource-allocation.jpg" alt="Resource allocation matrix: employees as rows, months as columns, over-allocation highlighted" loading="lazy" />
+          <figcaption>Resource allocation - people against months, over-allocation flagged in place.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/cpo/app-billability.jpg" alt="Billability dashboard with yearly rate, monthly progression and per-team comparison" loading="lazy" />
+          <figcaption>Utilisation, against last year and per team.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/cpo/app-bench.jpg" alt="Bench report listing employees below fifty percent utilisation across the year" loading="lazy" />
+          <figcaption>Bench report - who is under-booked, and when.</figcaption>
+        </figure>
+        <figure class="shot shot--wide r">
+          <img src="../../assets/references/cpo/app-burnup.jpg" alt="Burn-up chart with cumulative booked time as bars against the planning line, plus a per-project breakdown" loading="lazy" />
+          <figcaption>Burn-up - booked time against the plan, day by day.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/cpo/app-budgets.jpg" alt="Budget overview per customer and project with consumption, remainder and progress, overruns in red" loading="lazy" />
+          <figcaption>Budgets - consumed, remaining, overrun.</figcaption>
+        </figure>
+        <figure class="shot r">
+          <img src="../../assets/references/cpo/app-actuals.jpg" alt="Actuals list comparing planned and booked days per employee and project with the difference" loading="lazy" />
+          <figcaption>Actuals - plan against booking, line by line.</figcaption>
+        </figure>
+        <figure class="shot shot--wide r">
+          <img src="../../assets/references/cpo/app-customer-allocation.jpg" alt="Customer resource allocation matrix with customers as rows and months as columns" loading="lazy" />
+          <figcaption>The same planning data seen from the customer side.</figcaption>
+        </figure>
+        <figure class="shot shot--wide r">
+          <img src="../../assets/references/cpo/app-my-year.jpg" alt="Employee self-service year view with availability, working days, billability and leave per month and quarter" loading="lazy" />
+          <figcaption>Self-service - everyone can check their own year.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">What it does</h2>
+      <ul class="features">
+        <li class="r">
+          <b>Resource allocation</b>
+          <span>Who is planned on what, per employee, project and period - as a team view, a customer view and a business-unit view.</span>
+        </li>
+        <li class="r">
+          <b>Planning versions and comparison</b>
+          <span>Plans are snapshotted, so a later version can be held against an earlier one and the delta explained rather than argued about.</span>
+        </li>
+        <li class="r">
+          <b>Actuals and burn-up</b>
+          <span>Booked hours run against budget per job order, with a burn-up view that shows whether a project is tracking or drifting.</span>
+        </li>
+        <li class="r">
+          <b>Billability and bench</b>
+          <span>Utilisation per person and per unit, plus a bench report that surfaces unstaffed capacity before it becomes a surprise.</span>
+        </li>
+        <li class="r">
+          <b>Absence and availability</b>
+          <span>Leave, part-time models and office-specific public holidays feed directly into available capacity instead of being remembered by hand.</span>
+        </li>
+        <li class="r">
+          <b>Employee self-service</b>
+          <span>My day, my month, my year and my team - so the people in the plan can check and correct their own picture.</span>
+        </li>
+        <li class="r">
+          <b>Sync with the central system</b>
+          <span>A nightly scheduler and inbound webhooks pull timesheets, planning and budgets from the company's administration tool; every request is logged and replayable.</span>
+        </li>
+        <li class="r">
+          <b>Admin back office</b>
+          <span>CRUD for companies, business units, teams, employees, customers, projects, job orders and settings, behind role-based access control.</span>
+        </li>
+        <li class="r">
+          <b>Multi-company data model</b>
+          <span>Companies, business units and teams are first-class entities, so more than one organisation can be planned in the same installation.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">How it is built</h2>
+      <p class="prose r">
+        Symfony 7.4 on PHP 8.3 with PostgreSQL 16, served by FrankenPHP. The
+        frontend is server-rendered Twig with AssetMapper and an import map -
+        <strong>no bundler, no node build step</strong> in the deployment path.
+        API Platform exposes the resources that other tools consume, EasyAdmin
+        carries the back office so that plumbing screens cost hours rather than
+        weeks.
+      </p>
+      <p class="prose r">
+        Anything slow or scheduled runs outside the request: a separate worker
+        container consumes the Messenger queue and dispatches Scheduler tasks, so
+        imports and recalculations never block a user. Domain logic lives in
+        services, with PHPStan and PHPUnit in CI to keep the calculation-heavy
+        parts honest.
+      </p>
+      <p class="prose r">
+        Delivery is fully automated: GitHub Actions builds the image, pushes it
+        to a container registry and verifies the deployed <strong>/health</strong>
+        endpoint; the servers pull the new image themselves. Secrets live in an
+        encrypted vault rather than in the compose file, and every release is
+        summarised in a changelog that users see once, as a modal after login.
+      </p>
+      <p class="prose r">
+        It runs on infrastructure the company controls, not on managed cloud
+        services - which is why the whole stack is deliberately boring: two
+        containers, one database, no vendor that needs a data-processing
+        agreement.
+      </p>
+      <ul class="chips r" style="margin-top: 28px;">
+        <li>Symfony 7.4</li>
+        <li>PHP 8.3</li>
+        <li>PostgreSQL 16</li>
+        <li>Doctrine ORM &amp; Migrations</li>
+        <li>API Platform</li>
+        <li>EasyAdmin</li>
+        <li>Messenger &amp; Scheduler</li>
+        <li>AssetMapper</li>
+        <li>FrankenPHP</li>
+        <li>Docker &amp; GitHub Actions</li>
+        <li>PHPStan &amp; PHPUnit</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The interesting part</h2>
+      <p class="prose r">
+        Most of the difficulty was not in CPO but at its edge. The authoritative
+        source of hours and budgets is a central administration tool with no
+        public API and no prospect of getting one, so the integration is built on
+        an interface I reverse-engineered from the application's own traffic:
+        session-based authentication, HTML and JSON responses that were never
+        meant to be consumed by anything but a browser, and rate limits nobody
+        documented.
+      </p>
+      <p class="prose r">
+        That makes the upstream side hostile terrain, and the client is written
+        accordingly - parallel requests with backoff, a session refresh that
+        heals itself, a full request log so any figure can be traced back to the
+        exact response it came from, and a banner in the UI the moment upstream
+        credentials stop working, instead of numbers that quietly go stale. Every
+        import is idempotent, because the only safe assumption about a
+        reverse-engineered source is that it will change without warning.
+      </p>
+      <p class="prose r">
+        The second lesson was about trust. A planning tool is only used if its
+        numbers survive being challenged in a meeting, so plans are versioned and
+        auditable, and every derived figure - utilisation, billability, remaining
+        budget - has a definition someone can look up. Getting that right mattered
+        far more to adoption than any feature on the roadmap.
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p>Roman Allenstein · <a href="../">References</a> · <a href="../../">roman-allenstein.de</a></p>
+    </footer>
+  </div>
+
+  <script src="../../js/references.js"></script>
+</body>
+</html>
