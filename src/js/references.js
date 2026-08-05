@@ -36,18 +36,25 @@
   dialog.className = "lightbox";
   dialog.innerHTML =
     '<button class="lightbox__close" type="button" aria-label="Close">&times;</button>' +
+    '<div class="lightbox__figure">' +
     '<img class="lightbox__img" alt="" />' +
+    '<span class="lightbox__badge" hidden>Demo data</span>' +
+    '</div>' +
     '<p class="lightbox__caption"></p>';
   document.body.appendChild(dialog);
 
   var img = dialog.querySelector(".lightbox__img");
   var caption = dialog.querySelector(".lightbox__caption");
+  var badge = dialog.querySelector(".lightbox__badge");
 
   function open(source) {
+    var figure = source.closest("figure");
     img.src = source.currentSrc || source.src;
     img.alt = source.alt || "";
-    var figcaption = source.closest("figure") && source.closest("figure").querySelector("figcaption");
+    var figcaption = figure && figure.querySelector("figcaption");
     caption.textContent = figcaption ? figcaption.textContent : "";
+    // Carry the demo-data marker over, so the badge is visible at full size too.
+    badge.hidden = !(figure && figure.classList.contains("shot--demo"));
     dialog.showModal();
   }
 

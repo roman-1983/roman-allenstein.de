@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var ok = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!ok) return;
+      document.documentElement.classList.add("reveal-anim");
+      // Safety net: if references.js never runs, drop the class so nothing
+      // stays hidden.
+      window.setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("reveal-anim");
+        }
+      }, 2000);
+    })();
+  </script>
+  <title>Agentic Commerce - Roman Allenstein</title>
+  <meta name="description" content="Agentic Commerce: a whitepaper on what autonomous AI agents change about digital commerce, written by Roman Allenstein." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/references.css" />
+  <script src="https://rybbit.rmn.one/api/script.js" data-site-id="3" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>References</span>
+      </a>
+    </div>
+
+    <header class="head">
+      <p class="head__eyebrow">Whitepaper</p>
+      <div class="project-head">
+        <img class="project-head__icon" src="../../assets/references/whitepaper/icon.svg" alt="" />
+        <h1 class="project-head__title">Agentic Commerce<span class="project-head__sub">What autonomous AI agents change about digital commerce</span></h1>
+      </div>
+      <p class="head__lead">
+        Around fifty pages on the shift from customers who search and browse to
+        agents that are delegated the whole purchase - and on what an e-commerce
+        organisation has to change before it stops being visible to them. I
+        researched, structured and wrote it.
+      </p>
+    </header>
+
+    <section class="meta">
+      <div class="r">
+        <div class="meta__key">Role</div>
+        <div class="meta__val">Author - research, structure, writing</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Format</div>
+        <div class="meta__val">Whitepaper, plus management summary, platform concepts and a webinar</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Language</div>
+        <div class="meta__val">German</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Status</div>
+        <div class="meta__val">Published internally, 2026</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The argument</h2>
+      <p class="prose r">
+        Search and browse is being replaced by delegate and execute. The customer
+        does not disappear, but steps back: research, comparison and increasingly
+        the checkout itself are handed to an agent, and the machine becomes the
+        party that decides. That single move breaks the assumption every
+        storefront of the last twenty years was built on - that a human is
+        looking at it.
+      </p>
+      <p class="prose r">
+        The consequence is uncomfortable for most organisations.
+        <strong>Visibility stops coming from rankings and ad budgets and starts
+        coming from machine-readable product data and open interfaces.</strong>
+        A shop that an agent cannot find, parse or trust is not ranked lower -
+        it is skipped. And unlike previous platform shifts, the infrastructure is
+        being laid right now, by parties large enough to make their choices
+        stick.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">What it covers</h2>
+      <ul class="features">
+        <li class="r">
+          <b>The paradigm shift</b>
+          <span>The delegated decision loop as the new customer journey, and the three interaction models it produces.</span>
+        </li>
+        <li class="r">
+          <b>Market and players</b>
+          <span>Where the forecasts from the large analyst houses agree and where they do not, who the shopping agents are, and why B2B is the bigger field.</span>
+        </li>
+        <li class="r">
+          <b>The protocol landscape</b>
+          <span>The agentic commerce stack: MCP as the foundation, agent-to-agent communication, the payment and identity protocols the card networks have launched, and UCP as the converging standard.</span>
+        </li>
+        <li class="r">
+          <b>From SEO to AEO</b>
+          <span>Why classical search visibility is no longer sufficient, what answer-engine optimisation demands of product data, and how exposure differs by product category.</span>
+        </li>
+        <li class="r">
+          <b>Agent readiness</b>
+          <span>Data quality, technical infrastructure, a touchpoint checklist and an assessment along an automation curve, so the abstract question becomes a score.</span>
+        </li>
+        <li class="r">
+          <b>Shopware and Shopify</b>
+          <span>Where both platforms stand on agentic commerce, their strengths and gaps, and concrete measures for customers on each.</span>
+        </li>
+        <li class="r">
+          <b>Regulation and governance</b>
+          <span>The European framework, and the case that regulation is an opportunity rather than only a brake.</span>
+        </li>
+        <li class="r">
+          <b>Outlook</b>
+          <span>A timeline, the limitations and open questions, three fields of action, and a glossary for the terms the field is still arguing about.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Beyond the document</h2>
+      <p class="prose r">
+        The whitepaper is the centre of a set rather than a standalone paper. A
+        two-page management summary carries the argument to people who will not
+        read fifty pages. Two implementation concepts translate the
+        recommendations into concrete steps - one for Shopware, one for Shopify -
+        from structured data and MCP endpoints through to agent monitoring, each
+        backed by working example code. A team session and a client webinar take
+        the same material to two very different audiences.
+      </p>
+      <p class="prose r">
+        Writing it was as much an editorial problem as a technical one. The field
+        produces announcements faster than evidence, so a good part of the work
+        was separating what is shipping from what is a press release, and
+        marking the difference honestly - including a chapter on limitations,
+        which is the part that ages best.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Availability</h2>
+      <p class="prose r">
+        The whitepaper is a company publication and is not hosted here. If it is
+        relevant to a conversation we are having, ask me and I will walk you
+        through the argument, or point you at the official release once it is
+        public.
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p>Roman Allenstein · <a href="../">References</a> · <a href="../../">roman-allenstein.de</a></p>
+    </footer>
+  </div>
+
+  <script src="../../js/references.js"></script>
+</body>
+</html>

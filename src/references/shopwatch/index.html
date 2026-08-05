@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var ok = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!ok) return;
+      document.documentElement.classList.add("reveal-anim");
+      // Safety net: if references.js never runs, drop the class so nothing
+      // stays hidden.
+      window.setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("reveal-anim");
+        }
+      }, 2000);
+    })();
+  </script>
+  <title>ShopWatch - Roman Allenstein</title>
+  <meta name="description" content="ShopWatch: a SaaS platform that monitors online shops for performance, trust and SEO issues and scores them over time." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/references.css" />
+  <script src="https://rybbit.rmn.one/api/script.js" data-site-id="3" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>References</span>
+      </a>
+    </div>
+
+    <header class="head">
+      <p class="head__eyebrow">SaaS product</p>
+      <div class="project-head">
+        <img class="project-head__icon" src="../../assets/references/shopwatch/icon.svg" alt="ShopWatch logo" />
+        <h1 class="project-head__title">ShopWatch<span class="project-head__sub">Monitoring for online shops</span></h1>
+      </div>
+      <p class="head__lead">
+        Uptime tools watch whether a server answers. ShopWatch watches whether a
+        shop still deserves the visit: how fast it loads, whether its trust
+        signals hold up, whether search engines and now agents can read it - as
+        one score, tracked over time. My own product, built end to end.
+      </p>
+    </header>
+
+    <section class="meta">
+      <div class="r">
+        <div class="meta__key">Role</div>
+        <div class="meta__val">Product, architecture, development, operations</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Type</div>
+        <div class="meta__val">Multi-tenant SaaS, workspace-based</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Stack</div>
+        <div class="meta__val">Symfony · PHP 8.4 · PostgreSQL with TimescaleDB · Docker</div>
+      </div>
+      <div class="r">
+        <div class="meta__key">Status</div>
+        <div class="meta__val">Pre-launch, waitlist open at <a href="https://shopwatch.io" target="_blank" rel="noopener">shopwatch.io</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The problem</h2>
+      <p class="prose r">
+        Shop operators usually learn about a problem from the sales figures. The
+        checkout got half a second slower, a trust badge stopped rendering, a
+        deployment dropped the canonical tags - none of that raises an alarm, and
+        by the time the revenue dip is visible in a report, the cause is weeks
+        old and buried under everything else that changed since.
+      </p>
+      <p class="prose r">
+        The tooling for each individual question exists, and that is exactly the
+        problem: performance in one tool, SEO in the next, certificates and trust
+        signals somewhere else again, each speaking its own dialect and each
+        assuming a specialist is reading it. The person actually responsible for
+        the shop is rarely that specialist. <strong>ShopWatch answers one
+        question instead - is my shop healthy, and if not, what do I fix
+        first?</strong>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">What it does</h2>
+      <ul class="features">
+        <li class="r">
+          <b>One composite score</b>
+          <span>Sixty-plus individual checks across eight families - performance, SEO, advanced SEO, markup, trust, best practices, tech stack, social - roll up into a single ShopWatch Score with a breakdown per category.</span>
+        </li>
+        <li class="r">
+          <b>Tracked over time</b>
+          <span>Every run is a measurement, not a snapshot, so a regression shows up as a curve bending rather than a number someone has to remember.</span>
+        </li>
+        <li class="r">
+          <b>Uptime and incidents</b>
+          <span>Reachability is checked continuously; outages are classified into incidents instead of firing one alert per failed probe.</span>
+        </li>
+        <li class="r">
+          <b>Findings with a next action</b>
+          <span>Results are not a list of red items. Findings carry progress state and are ranked into a next-best-action, so there is always one obvious thing to do next.</span>
+        </li>
+        <li class="r">
+          <b>Competitors</b>
+          <span>The same checks run against competing shops, so a score can be read against the market instead of in a vacuum.</span>
+        </li>
+        <li class="r">
+          <b>Workspaces and agencies</b>
+          <span>Accounts, workspaces, members and invitations, so an agency can run many client shops side by side under its own roles.</span>
+        </li>
+        <li class="r">
+          <b>Passwordless access</b>
+          <span>Sign-in runs on one-time codes by email - no password to leak, and one less obstacle between a visitor and their first result.</span>
+        </li>
+        <li class="r">
+          <b>Plans and billing</b>
+          <span>Subscriptions, entitlements, invoices and proration on plan changes, with limits enforced through a single entitlement service.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">How it is built</h2>
+      <p class="prose r">
+        Symfony on PHP 8.4, PostgreSQL with <strong>TimescaleDB hypertables</strong>
+        for the measurement series, everything containerised. Checks are small
+        classes behind a registry - some parse fetched HTML, others call external
+        services - which is what makes sixty of them maintainable: adding a check
+        means writing one class, not touching a pipeline.
+      </p>
+      <p class="prose r">
+        The work happens outside the request, on <strong>nine named queues</strong>
+        - registration, page speed, analysis, communication, payment and
+        prioritised general lanes - consumed by around a dozen worker containers
+        with their own retry strategies. That separation is the point: a slow
+        third-party API on one shop's page-speed run must never delay somebody
+        else's sign-up, and a payment webhook must never queue behind a batch of
+        analyses.
+      </p>
+      <p class="prose r">
+        Around the edges sit the parts that make it a product rather than a
+        script: a scheduler for recurring runs, alert evaluation against
+        thresholds, bot-wall detection so a shop that blocks crawlers is reported
+        as blocked instead of broken, and vector embeddings of shop profiles to
+        suggest which competitors are worth comparing against.
+      </p>
+      <ul class="chips r" style="margin-top: 28px;">
+        <li>Symfony</li>
+        <li>PHP 8.4</li>
+        <li>PostgreSQL</li>
+        <li>TimescaleDB</li>
+        <li>Messenger &amp; Scheduler</li>
+        <li>Doctrine ORM &amp; Migrations</li>
+        <li>Twig</li>
+        <li>Docker Compose</li>
+        <li>Traefik</li>
+        <li>Embeddings</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The interesting part</h2>
+      <p class="prose r">
+        The hardest problem is not measuring anything - it is the score. A number
+        that aggregates sixty checks is only useful if people trust it, and trust
+        breaks the moment it moves for a reason nobody can explain. So every
+        score decomposes into categories, every category into checks, and every
+        check into the evidence it was derived from. A score you can argue with
+        is worth more than a score that is merely precise.
+      </p>
+      <p class="prose r">
+        The second lesson came from the open internet. Shops rate-limit, serve
+        different markup to bots, sit behind protection that answers with a
+        challenge page, or are simply slow. Treating those as failures produces
+        alarms nobody believes, so a good share of the code is about telling
+        <em>could not measure</em> apart from <em>measured and it is bad</em> -
+        and saying so plainly.
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p>Roman Allenstein · <a href="../">References</a> · <a href="../../">roman-allenstein.de</a></p>
+    </footer>
+  </div>
+
+  <script src="../../js/references.js"></script>
+</body>
+</html>

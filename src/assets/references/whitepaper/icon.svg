@@ -1,0 +1,13 @@
+<!-- Document mark for the whitepaper entry: same rounded-tile silhouette as the
+     project icons, drawn in the site's coral so writing reads as its own kind. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#241715"/>
+  <path d="M168 96h128l88 88v232a24 24 0 0 1-24 24H168a24 24 0 0 1-24-24V120a24 24 0 0 1 24-24z"
+        fill="none" stroke="#f84f4a" stroke-width="26" stroke-linejoin="round"/>
+  <path d="M288 96v96h96" fill="none" stroke="#f84f4a" stroke-width="26" stroke-linejoin="round"/>
+  <g stroke="#f84f4a" stroke-width="24" stroke-linecap="round">
+    <path d="M192 264h128"/>
+    <path d="M192 328h128"/>
+    <path d="M192 392h80"/>
+  </g>
+</svg>
