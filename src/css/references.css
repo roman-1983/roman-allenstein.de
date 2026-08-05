@@ -219,6 +219,23 @@ a { color: inherit; }
   font-size: 0.85rem;
   color: var(--text-subtle);
 }
+/* Per-image demo-data badge. Sits on the screenshot itself so it travels with
+   the image into the lightbox and into anything that crops the page. */
+.shot--demo { position: relative; }
+.shot--demo::after {
+  content: "Demo data";
+  position: absolute;
+  top: 10px; left: 10px;
+  padding: 5px 11px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  background: var(--coral);
+  border-radius: 999px;
+  pointer-events: none;
+}
 .shot img {
   width: 100%;
   border-radius: 14px;
@@ -287,6 +304,20 @@ a { color: inherit; }
   color: var(--text-muted);
 }
 .lightbox__caption:empty { display: none; }
+.lightbox__figure { position: relative; width: fit-content; margin: 0 auto; }
+.lightbox__badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  padding: 6px 13px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  background: var(--coral);
+  border-radius: 999px;
+}
+.lightbox__badge[hidden] { display: none; }
 .lightbox__close {
   position: fixed;
   top: clamp(12px, 2vw, 24px);
@@ -304,11 +335,23 @@ a { color: inherit; }
 .lightbox__close:hover { background: var(--coral); color: #1a1a1a; }
 
 /* ---------- reference cards (index) ---------- */
+/* Groups let the index separate kinds of work (built things vs. writing)
+   without turning each into its own page. */
+.group { padding: clamp(40px, 6vh, 64px) 0 0; }
+.group:last-of-type { padding-bottom: clamp(40px, 6vh, 64px); }
+.group__title {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  font-weight: 600;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: clamp(20px, 3vw, 28px);
-  padding: clamp(44px, 8vh, 80px) 0;
+  padding: clamp(20px, 3vh, 28px) 0 0;
 }
 .card {
   display: block;

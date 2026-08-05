@@ -1,8 +1,16 @@
+<!-- Redrawn from the app favicon: there the filled zig-zag band and the four
+     dots described different curves, so the markers floated off the line. Same
+     colours and idea, but one rising polyline with a marker on every vertex. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="64" fill="#151f27"/>
-  <path d="M96 400V352l120-120 80 80 128-128v48l-128 128-80-80-120 120z" fill="#e8ba31"/>
-  <circle cx="96" cy="400" r="20" fill="#e8ba31"/>
-  <circle cx="216" cy="280" r="20" fill="#e8ba31"/>
-  <circle cx="296" cy="200" r="20" fill="#e8ba31"/>
-  <circle cx="416" cy="160" r="20" fill="#e8ba31"/>
+  <rect width="512" height="512" rx="112" fill="#151f27"/>
+  <path d="M104 384 208 272 304 208 408 128" fill="none" stroke="#e8ba31" stroke-width="26"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Thin ring only, so the markers read as nodes without chopping the line
+       into dashes at favicon size. -->
+  <g fill="#e8ba31" stroke="#151f27" stroke-width="8">
+    <circle cx="104" cy="384" r="32"/>
+    <circle cx="208" cy="272" r="32"/>
+    <circle cx="304" cy="208" r="32"/>
+    <circle cx="408" cy="128" r="32"/>
+  </g>
 </svg>

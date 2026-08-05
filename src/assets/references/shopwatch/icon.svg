@@ -1,0 +1,11 @@
+<!-- ShopWatch mark: the product's shield-and-heartbeat logo on its own dark
+     surface, so the tile matches the other reference icons. Geometry taken
+     from assets/images/logo.svg (32-unit viewBox), scaled into 512. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0b1020"/>
+  <g transform="translate(48 48) scale(13)" fill="none" stroke="#ff3c3e"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 3L5 7.5v7.5c0 7.5 4.5 13 11 16.5 6.5-3.5 11-9 11-16.5V7.5L16 3z"/>
+    <path d="M9 16h3.5l2-5.5 3 11 2-5.5H23"/>
+  </g>
+</svg>
