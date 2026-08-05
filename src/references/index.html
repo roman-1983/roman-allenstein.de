@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var ok = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!ok) return;
+      document.documentElement.classList.add("reveal-anim");
+      // Safety net: if references.js never runs, drop the class so nothing
+      // stays hidden.
+      window.setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("reveal-anim");
+        }
+      }, 2000);
+    })();
+  </script>
+  <title>References - Roman Allenstein</title>
+  <meta name="description" content="Selected projects built by Roman Allenstein." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/references.css" />
+  <script src="https://rybbit.rmn.one/api/script.js" data-site-id="3" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Roman Allenstein</span>
+      </a>
+    </div>
+
+    <header class="head">
+      <p class="head__eyebrow">References</p>
+      <h1 class="head__title">Selected work</h1>
+      <p class="head__lead">
+        Things I designed, built and run myself - from the first sketch to the
+        container in production.
+      </p>
+    </header>
+
+    <main class="cards">
+      <a class="card r" href="stubenheld/">
+        <div class="card__top">
+          <img class="card__icon" src="../assets/references/stubenheld/icon.png" alt="" />
+          <div>
+            <div class="card__name">Stubenheld</div>
+            <div class="card__kind">Progressive Web App · Symfony &amp; PHP</div>
+          </div>
+        </div>
+        <p class="card__text">
+          A mobile-first PWA for logging a puppy's routine in a single tap -
+          with walk and sleep tracking, streaks, a pattern-based prediction of
+          the next bathroom break, push reminders and a printable vet report.
+        </p>
+        <span class="card__more">
+          <span>Read the case study</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </main>
+
+    <footer class="foot">
+      <p>Roman Allenstein · <a href="../">roman-allenstein.de</a></p>
+    </footer>
+  </div>
+
+  <script src="../js/references.js"></script>
+</body>
+</html>
